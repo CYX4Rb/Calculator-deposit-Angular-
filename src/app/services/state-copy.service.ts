@@ -66,6 +66,11 @@ export class StateService {
     this.updateReferenceValues()
   }
 
+  private defineEveryThink() {
+    this.defineParam()
+    this.defineDeltaSumm()
+  }
+
   private defineParam(): void {
     const param = this.selectedDeposit.value.param
 
@@ -85,6 +90,9 @@ export class StateService {
   private defineDeltaSumm(): void {
     this.minSumm.next(this.selectedParam.summs_and_rate[0].summ_from)
     this.maxSumm.next(this.selectedParam.summs_and_rate[this.selectedParam.summs_and_rate.length - 1].summ_from)
+    if(this.minSumm.value > this.selectedSumm.value){
+        this.selectedSumm.next(this.minSumm.value)
+    }
   }
   private defineSummAndRate(): void {
     if (this.selectedSumm.value >= this.summsAndRate[this.summsAndRate.length - 1].summ_from) {
@@ -110,9 +118,6 @@ export class StateService {
     this.calculator.calculateProfit(this.selectedSumm.value, this.selectedPeriod.value, this.selectedRate.value)
   }
 
-  private defineEveryThink() {
-    this.defineParam()
-    this.defineDeltaSumm()
-  }
+  
 
 }

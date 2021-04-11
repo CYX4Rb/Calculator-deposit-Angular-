@@ -1,35 +1,34 @@
+@import '../../../styles.scss';
+
 .result {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 
-    max-width: 556px;
+    max-width: $data-wrapper;
     width: 100%;
 
     margin-top: 46px;
 
     &__name {
+        color: #7E878E;
         font-size: 14px;
         line-height: 17px;
     }
+
     &__name-sum {
         width: 170px;
     }
 
+    &__period {
+        cursor: pointer;
+
+        color: $dark-blue-color;
+        text-decoration: underline;
+    }
+
     &__value {
-        font-weight: 500;
         font-size: 30px;
         line-height: 36px;
     }   
-    
-
-}
-
-.info {
-    display: flex;
-    flex-direction: column;
-    &__logo {
-        margin-left: -25px;
-        margin-bottom: 20px;
-    }
 }
