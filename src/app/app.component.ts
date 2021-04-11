@@ -1,4 +1,4 @@
-import { StateService } from './service/state.service';
+import { StateService } from './services/state.service';
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { DepositType } from './models/StateModel';

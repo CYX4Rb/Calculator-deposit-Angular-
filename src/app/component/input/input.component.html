@@ -4,12 +4,16 @@
             <h3 class="data__name">Срок вклада</h3>
             <p class="data__summ">{{state.selectedPeriod | async}} мес.</p>
         </div>
-        <input min="{{state.minPeriod | async}}" max="{{state.maxPeriod | async}}" value='{{state.selectedPeriod | async}}'
-        (input)='state.changePeriod($event)'
-        type="range" class="data__range">
+        <input min="{{state.minPeriod | async}}" max="{{state.maxPeriod | async}}"
+            value='{{state.selectedPeriod | async}}' (input)='state.changePeriod($event)' type="range"
+            class="data__range">
     </div>
     <div class="data__tooltip">
-        <img src="../assets/icon-info.svg">
+        <img src="../assets/icon-info.svg" class="tooltip__icon">
+        <div class='tooltip__content'>
+            <h5 class='tooltip__header'>Tooltic2</h5>
+            <p class="tooltip__text">Text tooltip 2</p>
+        </div>
     </div>
 </div>
 <div class='calculator__data'>
@@ -17,22 +21,17 @@
         <div class="data__value">
             <h3 class="data__name">Сумма вклада</h3>
             <p class="data__summ">
-                <!-- <ng-container>свыше</ng-container>  -->
-                {{state.selectedSumm | async}} Р
+                {{state.selectedSumm | async | sliceSum}} Р
             </p>
         </div>
-        <input min='{{state.minSumm | async}}' 
-            max='{{state.maxSumm | async}}' 
-            type="range"
-            (input)='state.changeSumm($event)'
-            value='{{state.selectedSumm | async}}'
-            class="data__range">
+        <input min='{{state.minSumm | async}}' max='500000000' type="range"
+            (input)='state.changeSumm($event)' value='{{state.selectedSumm | async}}' class="data__range">
     </div>
     <div class="data__tooltip">
-        <img src="../assets/icon-info.svg">
+        <img src="../assets/icon-info.svg" class="tooltip__icon">
         <div class='tooltip__content'>
-          <h5>Tooltic2</h5>
-          <p>Text tooltip 2</p>
+            <h5 class='tooltip__header'>Tooltic2</h5>
+            <p class="tooltip__text">Text tooltip 2</p>
         </div>
     </div>
 </div>

@@ -1,5 +1,5 @@
-import { CalculatorService } from './../../service/calculator.service';
-import { StateService } from './../../service/state.service';
+import { CalculatorService } from '../../services/calculator.service';
+import { StateService } from '../../services/state.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

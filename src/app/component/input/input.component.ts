@@ -1,4 +1,4 @@
-import { StateService } from '../../service/state.service';
+import { StateService } from '../../services/state.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

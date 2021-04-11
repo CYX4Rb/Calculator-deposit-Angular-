@@ -1,5 +1,5 @@
 import { CalculatorService } from './calculator.service';
-import { StateType, DepositType, One_SummType, ParamType } from './../models/StateModel';
+import { StateType, DepositType, One_SummType, ParamType } from '../models/StateModel';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import data from '../../depcalc.json'
@@ -29,8 +29,8 @@ export class StateService {
 
 
   constructor(
-    private  calculator: CalculatorService
-  ) {this.calculator.calculateProfit(this.selectedSumm.value, this.selectedPeriod.value, this.selectedRate.value) }
+    private calculator: CalculatorService
+  ) { this.calculator.calculateProfit(this.selectedSumm.value, this.selectedPeriod.value, this.selectedRate.value) }
 
   private defineParam() {
     const param = this.selectedDeposit.value.param
@@ -51,6 +51,7 @@ export class StateService {
   private defineDeltaSumm(): void {
     this.minSumm.next(this.selectedParam.summs_and_rate[0].summ_from)
     this.maxSumm.next(this.selectedParam.summs_and_rate[this.selectedParam.summs_and_rate.length - 1].summ_from)
+
   }
   private defineSummAndRate(): void {
     if (this.selectedSumm.value >= this.summsAndRate[this.summsAndRate.length - 1].summ_from) {
@@ -64,34 +65,36 @@ export class StateService {
     }
   }
 
+  getResult(type: string): void { //switch
+    if (type === 'deposit') {
+      this.minPeriod.next(this.selectedDeposit.value.param[0].period_from)
+      this.maxPeriod.next(this.selectedDeposit.value.param[this.selectedDeposit.value.param.length - 1].period_from)
+      this.selectedPeriod.next(this.minPeriod.value)
+    }
+    if (type === 'deposit' || type === 'period') {
+      this.defineParam()
+      this.defineDeltaSumm()
+    }
+    if (type === 'deposit') { this.selectedSumm.next(this.minSumm.value) }
+    this.defineSummAndRate()
+    this.selectedRate.next(this.selectedSummAndRate.rate)
+    this.calculator.calculateProfit(this.selectedSumm.value, this.selectedPeriod.value, this.selectedRate.value)
+  }
+
   changeDeposit(deposit: string): void {
     const selectedDeposit = this.typesDeposit.find(el => el.code === deposit)
     if (selectedDeposit != null) {
       this.selectedDeposit.next(selectedDeposit)
     }
-
-    this.minPeriod.next(this.selectedDeposit.value.param[0].period_from)
-    this.maxPeriod.next(this.selectedDeposit.value.param[this.selectedDeposit.value.param.length - 1].period_from)
-    this.selectedPeriod.next(this.minPeriod.value)
-
-    this.defineParam()
-    this.defineDeltaSumm()
-    this.selectedSumm.next(this.minSumm.value)
-    this.calculator.calculateProfit(this.selectedSumm.value, this.selectedPeriod.value, this.selectedRate.value)
+    this.getResult('deposit')
   }
   changePeriod(period: any): void {
     this.selectedPeriod.next(period.target.value)
-    this.defineParam()
-    this.defineDeltaSumm()
-    this.defineSummAndRate()
-    this.selectedRate.next(this.selectedSummAndRate.rate)
-    this.calculator.calculateProfit(this.selectedSumm.value, this.selectedPeriod.value, this.selectedRate.value)
+    this.getResult('period')
   }
 
   changeSumm(summ: any): void {
     this.selectedSumm.next(summ.target.value)
-    this.defineSummAndRate()
-    this.selectedRate.next(this.selectedSummAndRate.rate)
-    this.calculator.calculateProfit(this.selectedSumm.value, this.selectedPeriod.value, this.selectedRate.value)
+    this.getResult('summ')
   }
 }

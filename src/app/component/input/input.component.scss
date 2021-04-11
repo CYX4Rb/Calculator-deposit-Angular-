@@ -44,26 +44,50 @@
         cursor: pointer;
         display: flex;
         margin: 0 auto;
+        visibility: visible;
+    }
+    &__tooltip:hover + .tooltip__icon{
+        visibility: hidden;
     }
 }
 
 .tooltip {
-    
+    position: relative;
+    margin-left: 100px;
+
+    &__header {
+        margin: unset;
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    &__text {
+        font-size: 14px;
+        line-height: 17px;
+        margin-top: 10px;
+    }
     &__content {
         background-color: white;
         position: absolute;
-        border: 1px solid #C4C4C4;
-        box-shadow: 0 0 10px rgb(194, 194, 194);
+        border: 1px solid #f3f1f1;
+        box-shadow: 0 0 10px rgb(0, 0, 0, 0.1 );
         width: 226px;
         height: 102px;
         border-radius: 8px;
+        margin-left: 40px;
+        padding: 15px 0 0 25px;
     }
     
-    &__content:after {
+    &__content:before {
+        position: absolute;
         content: ' ';
-        width: 0;
-        height: 0;
-        border: 10px solid transparent;
-        border-bottom: 7px solid black;
+        width: 10px;
+	    height: 10px;
+        border-left: 1px solid #f3f1f1;
+        border-bottom: 1px solid #f3f1f1;
+        top: 25px;
+        left: -1px;
+        background: white;
+        transform: translateX(-50%) rotate(45deg);
     }
 }

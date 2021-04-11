@@ -1,5 +1,6 @@
-<h1>Депозитный калькулятор</h1>
+
 <div class="calculator">
+    <h1 class="calclulator__header">Депозитный калькулятор</h1>
     <div class="calculator__wrapper">
         <h2 class="calculator__deposit deposit__type">Вклад</h2>
         <select [formControl]="deposit" class="deposit__select" (change)='this.state.changeDeposit(deposit.value)'>
@@ -9,7 +10,7 @@
         <app-result></app-result>
     </div>
     <div class="calculator__info info">
-        <img src="../assets/credit 1.svg" class="info__logo">
-        <img src="../assets/rectangle 14.svg">
+        <img src="../assets/credit 1.svg" class="info__logo" style='max-width: 290px;'>
+        <img src="../assets/rectangle 14.svg" style='max-width: 340px;'>
       </div>
 </div>
