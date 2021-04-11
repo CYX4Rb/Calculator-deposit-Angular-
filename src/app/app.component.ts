@@ -1,7 +1,7 @@
-import { StateService } from './services/state.service';
+//import { StateService } from './services/state.service';
+import { StateService } from './services/state-copy.service';
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { DepositType } from './models/StateModel';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +9,7 @@ import { DepositType } from './models/StateModel';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  deposit = new FormControl('unic')
-
-  constructor(public state: StateService){}
+  
+  constructor(){}
+  
 }

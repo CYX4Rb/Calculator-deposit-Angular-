@@ -44,14 +44,15 @@
         cursor: pointer;
         display: flex;
         margin: 0 auto;
-        visibility: visible;
-    }
-    &__tooltip:hover + .tooltip__icon{
-        visibility: hidden;
     }
 }
 
 .tooltip {
+    &:hover {
+        &__content {
+            visibility: visible;
+        }
+    }
     position: relative;
     margin-left: 100px;
 

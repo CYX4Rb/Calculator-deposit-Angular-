@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { InputComponent } from './component/input/input.component';
 import { ResultComponent } from './component/result/result.component';
 import { SliceSumPipe } from './pipes/slice-sum.pipe';
+import { SelectorComponent } from './component/selector/selector.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { SliceSumPipe } from './pipes/slice-sum.pipe';
     InputComponent,
     ResultComponent,
     SliceSumPipe,
+    SelectorComponent,
   ],
   imports: [
     BrowserModule,
