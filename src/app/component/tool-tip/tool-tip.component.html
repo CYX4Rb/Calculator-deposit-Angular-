@@ -1,0 +1,7 @@
+<div class="tooltip">
+    <img src="../assets/icon-info.svg" (mouseenter) ="mouseEnter()"  (mouseleave) ="mouseLeave()">
+    <div class='tooltip__content' *ngIf="isVisibleToolTip">
+        <h5 class='tooltip__header'>{{title}}</h5>
+        <p class="tooltip__text">{{text}}</p>
+    </div>
+</div>
