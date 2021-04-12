@@ -1,11 +1,9 @@
 @import '../../../styles.scss';
 
-.calculator__data {
+.data {
     display: flex;
     align-items: center;
-}
 
-.data {
     &__container {
         max-width: $data-content;
         width: 100%;

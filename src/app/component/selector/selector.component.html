@@ -1,4 +1,4 @@
-<h2 class="calculator__deposit deposit__type">Вклад</h2>
+<h2 class="deposit__type">Вклад</h2>
 <select [formControl]="deposit" class="deposit__select" (change)='this.state.changeDeposit(deposit.value)'>
     <option *ngFor="let deposit of state.typesDeposit" value="{{deposit.code}}">{{deposit.name}}</option>
 </select>

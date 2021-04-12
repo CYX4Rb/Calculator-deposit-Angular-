@@ -26,9 +26,9 @@ export class StateService {
 
   constructor(
     private calculator: CalculatorService
-  ) { 
-      this.calculator.calculateProfit(this.selectedSumm.value, this.selectedPeriod.value, this.selectedRate.value) 
-    }
+  ) {
+    this.calculator.calculateProfit(this.selectedSumm.value, this.selectedPeriod.value, this.selectedRate.value)
+  }
 
   changeDeposit(deposit: string): void {
     const selectedDeposit = this.typesDeposit.find(el => el.code === deposit)
@@ -38,10 +38,10 @@ export class StateService {
 
     this.updatePeriodByDeposit();
     this.defineEveryThink();
-    this.selectedSumm.next(this.minSumm.value) 
+    this.selectedSumm.next(this.minSumm.value)
     this.updateReferenceValues()
   }
-  
+
   changePeriod(period: number): void {
     this.selectedPeriod.next(period)
 
@@ -78,8 +78,8 @@ export class StateService {
 
   private defineDeltaSumm(): void {
     this.minSumm.next(this.selectedParam.summs_and_rate[0].summ_from)
-    if(this.minSumm.value > this.selectedSumm.value){
-        this.selectedSumm.next(this.minSumm.value)
+    if (this.minSumm.value > this.selectedSumm.value) {
+      this.selectedSumm.next(this.minSumm.value)
     }
   }
 
@@ -105,7 +105,4 @@ export class StateService {
     this.selectedRate.next(this.selectedSummAndRate.rate)
     this.calculator.calculateProfit(this.selectedSumm.value, this.selectedPeriod.value, this.selectedRate.value)
   }
-
-  
-
 }
