@@ -11,9 +11,8 @@ export class CalculatorService {
   constructor(
   ) { }
 
-  calculateProfit(summ: number, period: number, rate: number): void{
+  calculateProfit(summ: number, period: number, rate: number): void {
     this.profit.next((summ / 100 * period / 365 * rate).toFixed(2))
-    
     this.summInEndPeriod.next((+summ + parseFloat(this.profit.value)).toFixed(2))
   }
 }

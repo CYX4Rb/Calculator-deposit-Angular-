@@ -1,14 +1,15 @@
 <div class="result">
-    <div>
-      <h3 class="result__name">Процентная ставка</h3>
-      <span class="result__value">{{state.selectedRate | async}} %</span>
-    </div>
-    <div>
-      <h3 class="result__name result__name-sum">Сумма через <span class="result__period">{{state.selectedPeriod | async}} мес.</span></h3>
-      <span class="result__value">{{calculator.summInEndPeriod | async | sliceSum}} P</span>
-    </div>
-    <div>
-      <h3 class="result__name result__name-sum">Доход</h3>
-      <span class="result__value">{{calculator.profit | async | sliceSum}} P</span>
-    </div>
+  <div>
+    <h3 class="result__name">Процентная ставка</h3>
+    <span class="result__value">{{state.selectedRate | async}} %</span>
   </div>
+  <div class="result__sum">
+    <h3 class="result__name">Сумма через <span class="result__period">{{state.selectedPeriod | async}}
+        мес.</span></h3>
+    <span class="result__value">{{calculator.summInEndPeriod | async | sliceSum}} P</span>
+  </div>
+  <div class='result__profit'>
+    <h3 class="result__name">Доход</h3>
+    <span class="result__value">{{calculator.profit | async | sliceSum}} P</span>
+  </div>
+</div>

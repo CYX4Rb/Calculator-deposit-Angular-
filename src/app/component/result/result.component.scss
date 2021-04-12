@@ -8,18 +8,22 @@
     max-width: $data-wrapper;
     width: 100%;
 
-    margin-top: 46px;
+    margin-top: 40px;
 
     &__name {
         color: #7E878E;
         font-size: 14px;
         line-height: 17px;
+
+        margin-bottom: 2px;
     }
 
-    &__name-sum {
-        width: 170px;
+    &__sum {
+        width: 210px;
     }
-
+    &__profit {
+        width: 180px;
+    }
     &__period {
         cursor: pointer;
 

@@ -17,6 +17,8 @@
         align-items: baseline;
 
         max-height: 45px;
+
+        padding-bottom: 5px;
     }
 
     &__name {
@@ -28,22 +30,101 @@
         font-size: 22px;
         line-height: 18px;
     }
-
-    &__range {
-        max-width: $data-content;
-        width: 100%;
-        
-        -webkit-appearance: none;
-        height: 5px;
-        outline: none;
-
-        border-radius: 3px;
-
-        background-color: $blue-color;
-    } 
+    
     &__tooltip {
         cursor: pointer;
         display: flex;
         margin: 0 auto;
     }
+
+    input[type=range] {
+      -webkit-appearance: none;
+      width: 100%; 
+    }
+    
+    input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+    }
+    
+    input[type=range]:focus {
+        outline: none;
+    }
+    
+    input[type=range]::-ms-track {
+        width: 100%;
+        cursor: pointer;
+        background: transparent;
+        border-color: transparent;
+        color: transparent;
+    }
+    
+    input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 21px;
+        width: 21px;
+        border-radius: 10px;
+        background: $dark-blue-color;
+        cursor: pointer;
+        margin-top: -8.5px;
+    }
+    
+    input[type=range]::-moz-range-thumb {
+        height: 21px;
+        width: 21px;
+        border-radius: 10px;
+        background: $dark-blue-color;
+        cursor: pointer;
+        border: unset;
+    }
+    
+    input[type=range]::-ms-thumb {
+        height: 21px;
+        width: 21px;
+        border-radius: 10px;
+        background: $dark-blue-color;
+        cursor: pointer;
+    }
+    
+    input[type=range] {
+        -webkit-appearance: none;
+        margin: 10px 0;
+        width: 100%;
+     }
+    input[type=range]:focus {
+        outline: none;
+    }
+    input[type=range]::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 5px;
+        cursor: pointer;
+        background: $blue-color;
+        border-radius: 25px;
+    }
+    input[type=range]::-moz-range-track {
+        width: 100%;
+        height: 5px;
+        cursor: pointer;
+        background: $blue-color;
+        border-radius: 25px;
+    }
+    input[type=range]::-ms-track {
+        width: 100%;
+        height: 5px;
+        cursor: pointer;
+        background: transparent;
+        border-color: transparent;
+        color: transparent;
+    }
+    input[type=range]::-ms-fill-lower {
+        background: $blue-color;
+    }
+    input[type=range]::-ms-fill-upper {
+        background: $blue-color;
+    }
+    input[type=range]:focus::-ms-fill-lower {
+        background: $blue-color;
+    }
+    input[type=range]:focus::-ms-fill-upper {
+        background: $blue-color;
+    }     
 }

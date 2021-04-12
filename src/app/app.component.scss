@@ -3,11 +3,12 @@
 .calculator {
     display: flex;
     flex-direction: column;
+    align-self: baseline;
 
     max-width: 1038px;
     width: 100%;
 
-    margin: 0 auto;
+    margin: auto;
 
     &__wrapper {
         display: flex;
@@ -26,7 +27,7 @@
 
     &__logo {
         margin-left: -25px;
-        margin-bottom: 40px;
+        margin-bottom: 45px;
 
         max-width: 340px;
     }

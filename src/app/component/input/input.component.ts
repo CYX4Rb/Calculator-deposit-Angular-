@@ -1,5 +1,4 @@
-//import { StateService } from '../../services/state.service';
-import { StateService } from '../../services/state-copy.service';
+import { StateService } from '../../services/state.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -11,10 +10,11 @@ export class InputComponent {
 
   isVisibleToolTip: boolean = false
 
-  titleTooltipPeriod: string = 'Период'
-  textTooltipPeriod: string = ''
-  titleTooltipSumm: string = 'Cумма'
-  textToolTipSumm: string = `Выберете сумму от: ${this.state.minSumm.value}` 
+  titleTooltipPeriod: string = 'Tooltic 1'
+  textTooltipPeriod: string = 'Text of tooltip 1'
+  titleTooltipSumm: string = 'Tooltic 2'
+  textToolTipSumm: string = 'Text of tooltip 2'
+
   constructor(
     public state: StateService
   ) { }

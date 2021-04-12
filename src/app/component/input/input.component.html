@@ -1,4 +1,4 @@
-<div class='calculator__data'>
+<div class='calculator__data data'>
     <div class="data__container">
         <div class="data__value">
             <h3 class="data__name">Срок вклада</h3>
@@ -10,7 +10,7 @@
     </div>
     <app-tool-tip [title]='titleTooltipPeriod' [text]='textTooltipPeriod'></app-tool-tip>
 </div>
-<div class='calculator__data'>
+<div class='calculator__data data'>
     <div class="data__container">
         <div class="data__value">
             <h3 class="data__name">Сумма вклада</h3>
@@ -18,8 +18,8 @@
                 {{state.selectedSumm | async | sliceSum}} Р
             </p>
         </div>
-        <input min='{{state.minSumm | async}}' max='500000000' type="range"
-            (input)='state.changeSumm($event)' value='{{state.selectedSumm | async}}' class="data__range">
+        <input min='{{state.minSumm | async}}' max='500000000' type="range" (input)='state.changeSumm($event)'
+            value='{{state.selectedSumm | async}}' class="data__range">
     </div>
     <app-tool-tip [title]='titleTooltipSumm' [text]='textToolTipSumm'></app-tool-tip>
 </div>
