@@ -22,11 +22,7 @@ export class StateService {
   private selectedSummAndRate: One_SummType = this.selectedParam.summs_and_rate[0]
 
   public minPeriod: BehaviorSubject<number> = new BehaviorSubject(this.selectedDeposit.value.param[0].period_from)
-  public maxPeriod: BehaviorSubject<number> = new BehaviorSubject(this.selectedDeposit.value.param[this.selectedDeposit.value.param.length - 1].period_from)
-
   public minSumm: BehaviorSubject<number> = new BehaviorSubject(this.summsAndRate[0].summ_from)
-  public maxSumm: BehaviorSubject<number> = new BehaviorSubject(this.summsAndRate[this.summsAndRate.length - 1].summ_from)
-
 
   constructor(
     private calculator: CalculatorService
@@ -82,7 +78,6 @@ export class StateService {
 
   private defineDeltaSumm(): void {
     this.minSumm.next(this.selectedParam.summs_and_rate[0].summ_from)
-    this.maxSumm.next(this.selectedParam.summs_and_rate[this.selectedParam.summs_and_rate.length - 1].summ_from)
     if(this.minSumm.value > this.selectedSumm.value){
         this.selectedSumm.next(this.minSumm.value)
     }
@@ -102,7 +97,6 @@ export class StateService {
 
   private updatePeriodByDeposit() {
     this.minPeriod.next(this.selectedDeposit.value.param[0].period_from)
-    this.maxPeriod.next(this.selectedDeposit.value.param[this.selectedDeposit.value.param.length - 1].period_from)
     this.selectedPeriod.next(this.minPeriod.value)
   }
 

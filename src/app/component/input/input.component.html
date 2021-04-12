@@ -3,8 +3,8 @@
         <div class="data__value">
             <h3 class="data__name">Срок вклада</h3>
             <p class="data__summ">
-                <ng-container *ngIf="selectedPeriod === 365">свыше</ng-container>
-                {{state.selectedPeriod | async}} мес.
+                <ng-container *ngIf="selectedPeriod == 365">свыше</ng-container>
+                {{state.selectedPeriod | async}} дн.
             </p>
         </div>
         <div class="input__background"></div>

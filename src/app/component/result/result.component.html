@@ -4,8 +4,10 @@
     <span class="result__value">{{state.selectedRate | async}} %</span>
   </div>
   <div class="result__sum">
-    <h3 class="result__name">Сумма через <span class="result__period">{{state.selectedPeriod | async}}
-        мес.</span></h3>
+    <h3 class="result__name">
+      Сумма через
+      <span class="result__period">{{state.selectedPeriod | async}} дн.</span>
+    </h3>
     <span class="result__value">{{calculator.summInEndPeriod | async | sliceSum}} P</span>
   </div>
   <div class='result__profit'>
