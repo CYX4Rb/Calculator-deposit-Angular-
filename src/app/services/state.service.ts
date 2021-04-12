@@ -46,15 +46,15 @@ export class StateService {
     this.updateReferenceValues()
   }
   
-  changePeriod(period: any): void {
-    this.selectedPeriod.next(period.target.value)
+  changePeriod(period: number): void {
+    this.selectedPeriod.next(period)
 
     this.defineEveryThink()
     this.updateReferenceValues()
   }
 
-  changeSumm(summ: any): void {
-    this.selectedSumm.next(summ.target.value)
+  changeSumm(summ: number): void {
+    this.selectedSumm.next(summ)
 
     this.updateReferenceValues()
   }

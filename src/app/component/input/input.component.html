@@ -2,10 +2,15 @@
     <div class="data__container">
         <div class="data__value">
             <h3 class="data__name">Срок вклада</h3>
-            <p class="data__summ">{{state.selectedPeriod | async}} мес.</p>
+            <p class="data__summ">
+                <ng-container *ngIf="selectedPeriod === 365">свыше</ng-container>
+                {{state.selectedPeriod | async}} мес.
+            </p>
         </div>
-        <input min="{{state.minPeriod | async}}" max="{{state.maxPeriod | async}}"
-            value='{{state.selectedPeriod | async}}' (input)='state.changePeriod($event)' type="range"
+        <div class="input__background"></div>
+        <div class="input__selected" #period ></div>
+        <input min="{{state.minPeriod | async}}" max="365"
+            value='{{state.selectedPeriod | async}}' (input)='changePeriod($event, period)' type="range"
             class="data__range">
     </div>
     <app-tool-tip [title]='titleTooltipPeriod' [text]='textTooltipPeriod'></app-tool-tip>
@@ -15,11 +20,14 @@
         <div class="data__value">
             <h3 class="data__name">Сумма вклада</h3>
             <p class="data__summ">
+                <ng-container *ngIf="selectedSum == 500000000">свыше</ng-container>
                 {{state.selectedSumm | async | sliceSum}} Р
             </p>
         </div>
-        <input min='{{state.minSumm | async}}' max='500000000' type="range" (input)='state.changeSumm($event)'
-            value='{{state.selectedSumm | async}}' class="data__range">
+        <div class="input__background"></div>
+        <div class="input__selected" #sum ></div>
+        <input min='{{state.minSumm | async}}' max='500000000' type="range" (input)='changeSum($event, sum)'
+            value='{{state.selectedSumm | async}}' class="data__range">  
     </div>
     <app-tool-tip [title]='titleTooltipSumm' [text]='textToolTipSumm'></app-tool-tip>
 </div>
