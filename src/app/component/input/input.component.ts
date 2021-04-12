@@ -1,6 +1,5 @@
-import { element } from 'protractor';
 import { StateService } from '../../services/state.service';
-import { Component, DoCheck, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 
 @Component({
   selector: 'app-input',
